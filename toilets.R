@@ -38,8 +38,8 @@
       
       toilet_df <- read.csv(paste(wd,"/Data/toilet_data.csv", sep = ""))
 
-    # Choose how you want to fileter the data. If you're running it for Melbourne
-    # I suggest that you remove the postoce part.
+    # Choose how you want to fileter the data. If you're running it for Melbourne only
+    # you can filter additionally by postcodes, if you know what they are.
       
       State <- "Victoria"
       
