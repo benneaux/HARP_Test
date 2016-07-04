@@ -48,47 +48,47 @@
                   #&toilet_df$Postcode %in% 2280:2300 
                   , ])
 ### INCOMPLETE!!!: Import the Data (Group by Suburb)==============================================================
-      
-# This is my next attempt, where I pipe the suburb into another function that returns an approximate lat/lng for that suburb.
-    
-  ## First, create the data frame.
-        
-        write.csv(toilet_df_import,
-                   file = "toilet_suburb_data.csv"
-                   )
-         toilet_suburb_df <- read.csv('toilet_suburb_data.csv')
-         
-      # Choose how you want to fileter the data. If you're running it for Melbourne
-      # I suggest that you remove the postoce part.
-         
-         State <- "New South Wales"
-         
-         toilet_suburb_df <- as.data.frame(
-           toilet_suburb_df[toilet_suburb_df$State == State &
-                            toilet_suburb_df$Postcode %in% 2280:2300,
-             ])
-  
-  ## Next, the function for returning lat/lng for each suburb.
-        
-           toilet_suburb_df %>%
-             
-             group_by(.$Postcode)
-           
-           suburb = toilet_suburb_df$Town %>%
-           mutate(toilet_suburb_df, 
-                  suburb_lat = as.data.frame(
-                    geocode(
-                      paste(toilet_suburb_df$Town,
-                            ", Australia")
-                      )$lat
-                    )
-                  ) %>%
-            mutatate(suburb_lon = geocode(
-              paste(suburb,
-                    ", Australia")
-              )$lon
-              )
- 
+#       
+# # This is my next attempt, where I pipe the suburb into another function that returns an approximate lat/lng for that suburb.
+#     
+#   ## First, create the data frame.
+#         
+#         write.csv(toilet_df_import,
+#                    file = "toilet_suburb_data.csv"
+#                    )
+#          toilet_suburb_df <- read.csv('toilet_suburb_data.csv')
+#          
+#       # Choose how you want to fileter the data. If you're running it for Melbourne
+#       # I suggest that you remove the postoce part.
+#          
+#          State <- "New South Wales"
+#          
+#          toilet_suburb_df <- as.data.frame(
+#            toilet_suburb_df[toilet_suburb_df$State == State &
+#                             toilet_suburb_df$Postcode %in% 2280:2300,
+#              ])
+#   
+#   ## Next, the function for returning lat/lng for each suburb.
+#         
+#            toilet_suburb_df %>%
+#              
+#              group_by(.$Postcode)
+#            
+#            suburb = toilet_suburb_df$Town %>%
+#            mutate(toilet_suburb_df, 
+#                   suburb_lat = as.data.frame(
+#                     geocode(
+#                       paste(toilet_suburb_df$Town,
+#                             ", Australia")
+#                       )$lat
+#                     )
+#                   ) %>%
+#             mutatate(suburb_lon = geocode(
+#               paste(suburb,
+#                     ", Australia")
+#               )$lon
+#               )
+#  
 ### Create the labels==============================================================================
 
   ## Regardless of which method you choose, run this to create the labels that will appear when you click on a marker.    
