@@ -15,7 +15,7 @@ get_os <- function(){
   tolower(os)
 }
 
-required_packages <- c("magrittr", "dplyr", "maptools", "maps","leaflet", "ggmap")
+required_packages <- c("magrittr", "dplyr", "maps","leaflet", "ggmap")
 new_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
 load_packages <- function(x) {
   lapply(x, FUN = function(x) {
