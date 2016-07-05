@@ -65,7 +65,6 @@ data_url <- ("http://data.gov.au/dataset/553b3049-2b8b-46a2-95e6-640d7986a8c1/
        if(get_os() == "osx") {
          if (file.exists(osx_data_path)) {
            toilet_df <- read.csv(osx_data_path)
-           break
            } else {
              toilet_df_import <- read.csv(data_url)
              write.csv(
@@ -76,7 +75,6 @@ data_url <- ("http://data.gov.au/dataset/553b3049-2b8b-46a2-95e6-640d7986a8c1/
        } else {
          if (file.exists(windows_data_path)) {
            toilet_df <- read.csv(windows_data_path)
-           break
          } else {
            toilet_df_import <- read.csv(data_url)
            write.csv(
